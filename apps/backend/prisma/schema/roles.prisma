@@ -1,0 +1,9 @@
+model Role {
+  id          String       @id @default(uuid())
+  name        String      
+  identifier  String       @unique
+  idSector    String
+  users       User[]
+
+  @@unique([id, idSector])
+}
