@@ -1,0 +1,22 @@
+model User {
+    id             String    @id @default(uuid())
+    email          String    @unique
+    name           String
+    description    String?
+    password       String
+    profileImage   String?
+    phoneNumber    String
+    status         Boolean   @default(true)
+    createdAt      DateTime  @default(now())
+    idRole         String
+    role           Role      @relation(fields: [idRole], references: [id])
+    following      User[]    @relation("UserFollowing")
+    followers      User[]    @relation("UserFollowing")
+    posts          Post[]
+    likedPosts     Post[]    @relation("LikedPost")
+    Comment        Comment[]
+    Day            Day[]
+    Events         Event[]
+    participations Participation[]
+    eventId        String?
+}

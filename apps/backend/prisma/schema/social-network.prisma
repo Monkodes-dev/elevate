@@ -1,0 +1,31 @@
+model Post {
+    id        String    @id @default(uuid())
+    content   String
+    authorId  String
+    author    User      @relation(fields: [authorId], references: [id])
+    coments   Comment[]
+    likes     User[]    @relation("LikedPost")
+    tags      String[]
+    createdAt DateTime  @default(now())
+    feedId    String?
+    Feed      Feed?     @relation(fields: [feedId], references: [id])
+}
+
+model Comment {
+    id        String    @id @default(uuid())
+    content   String
+    authorId  String
+    author    User      @relation(fields: [authorId], references: [id])
+    postId    String
+    post      Post      @relation(fields: [postId], references: [id])
+    parentId  String?   @default("null")
+    kinship   String?
+    parent    Comment?  @relation("ParentChild", fields: [parentId], references: [id])
+    children  Comment[] @relation("ParentChild")
+    createdAt DateTime  @default(now())
+}
+
+model Feed {
+    id     String @id @default(uuid())
+    posts  Post[]
+}
