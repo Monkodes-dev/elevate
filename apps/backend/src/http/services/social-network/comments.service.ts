@@ -17,7 +17,9 @@ export class CommentsService{
 
             return newComment;
         } catch (error) {
-            throw new ApplicationError("Error creating comment");
+            //throw new ApplicationError("Error creating comment");
+            return error;
+            
         }
     }
 
@@ -31,7 +33,7 @@ export class CommentsService{
 
             return true;
         } catch (error) {
-            throw new ApplicationError("Error deleting comment");
+            return error;
         }
     }
 
@@ -45,7 +47,7 @@ export class CommentsService{
 
             return comments;
         } catch (error) {
-            throw new ApplicationError("Error finding comments");
+            return error;
         }
     }
 
@@ -59,7 +61,7 @@ export class CommentsService{
 
             return comment;            
         } catch (error) {
-            throw new ApplicationError("Error finding comment");
+            return error;
         }
     }
 }   

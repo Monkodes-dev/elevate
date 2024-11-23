@@ -11,7 +11,7 @@ export class PostController extends PostService {
 
         res.status(200).json(postCallback);
 
-    }
+    }   
     async like(req: Request, res: Response) {
        
         const data = req.body ;

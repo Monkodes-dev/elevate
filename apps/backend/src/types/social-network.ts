@@ -17,3 +17,9 @@ export interface Comment{
     parentId:string|null;
     kinship:string|null;
 }
+
+
+export interface Feed{
+    id: string;
+    posts: string[];
+}

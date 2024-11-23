@@ -5,7 +5,7 @@ const commentController = new CommentController();
 
 export const commentRoutes = Router();
 
-commentRoutes.post("/",commentController.create)
-commentRoutes.get("/",commentController.findAll)
-commentRoutes.get("/:id",commentController.findOne)
-commentRoutes.delete("/:id",commentController.delete)
+commentRoutes.post("/",commentController.create.bind(commentController))
+commentRoutes.get("/",commentController.findAll.bind(commentController))
+commentRoutes.get("/:id",commentController.findOne.bind(commentController))
+commentRoutes.delete("/:id",commentController.delete.bind(commentController))

@@ -17,7 +17,9 @@ export class PostService{
             
         }
         catch(err){
-            throw new ApplicationError("Error creating post");
+            //throw new ApplicationError("Error creating post");
+            console.log(err);
+            
         }
     }
 
