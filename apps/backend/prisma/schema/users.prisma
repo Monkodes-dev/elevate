@@ -15,8 +15,8 @@ model User {
     posts          Post[]
     likedPosts     Post[]    @relation("LikedPost")
     Comment        Comment[]
-    Day            Day[]
-    Events         Event[]
+    day            Day[]
+    events         Event[]
     participations Participation[]
     eventId        String?
 }
